@@ -1,0 +1,33 @@
+{
+  "name": "gskit",
+  "version": "1.0.0",
+  "description": "Gulp Starter Kit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install",
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idmitrov/GSKit.git"
+  },
+  "keywords": [
+    "Gulp"
+  ],
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/idmitrov/GSKit/issues"
+  },
+  "homepage": "https://github.com/idmitrov/GSKit#readme",
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0"
+  }
+}
