@@ -17,6 +17,21 @@
   			replaceString: /\bgulp[\-.]/
 		});
 
+	// MINIFY CSS
+	gulp.task('minify-css', function() {
+		gulp.src(config.path.prod.style + '**/*.css')
+			.pipe(plugins.uglify()
+			.pipe(gulp.dest(config.path.prod.style))
+		);
+	});
+
+	// MINIFY JS
+	gulp.task('minify-js', function() {
+		gulp.src(config.path.prod.script + '**/*.js')
+			.pipe(plugins.uglify())
+			.pipe(gulp.dest(config.path.prod.script))
+	});
+
 	// CLEAN
 	gulp.task('clean', function() {
 		gulp
