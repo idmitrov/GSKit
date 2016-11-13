@@ -1,16 +1,9 @@
-/**
-*	Required config with required props:
-*
-*	path: root: '$value',
-*	path: dev: { index: '$value', script: '$value', style: '$value' }
-*	path: prod: { index: '$value', script: '$value', style: '$value' }
-*/
 (function(config) {
 	'use strict';
 
 	// DEPENDENCIES
-	var historyApiFallback = require('connect-history-api-fallback'),
-		gulp = require('gulp'),
+	let gulp = require('gulp'),
+		historyApiFallback = require('connect-history-api-fallback'),
 		browserSync = require('browser-sync').create(),
 		plugins = require('gulp-load-plugins')({
 			pattern: ['gulp-*', 'gulp.*'],
@@ -18,7 +11,7 @@
 		});
 
 	// MINIFY CSS
-	gulp.task('minify-css', function() {
+	gulp.task('minify-css', () => {
 		gulp.src(config.path.prod.style + '**/*.css')
 			.pipe(plugins.uglify()
 			.pipe(gulp.dest(config.path.prod.style))
@@ -26,21 +19,21 @@
 	});
 
 	// MINIFY JS
-	gulp.task('minify-js', function() {
+	gulp.task('minify-js', () => {
 		gulp.src(config.path.prod.script + '**/*.js')
 			.pipe(plugins.uglify())
 			.pipe(gulp.dest(config.path.prod.script))
 	});
 
 	// CLEAN
-	gulp.task('clean', function() {
+	gulp.task('clean', () => {
 		gulp
 			.src(config.path.dev.style, { read: false })
 			.pipe(plugins.clean());
 	});
 
 	// SCRIPTS
-	gulp.task('scripts', function() {
+	gulp.task('scripts', () => {
 		return (
 			gulp
 				.src([
@@ -56,7 +49,7 @@
 	});
 
 	// STYLES
-	gulp.task('styles', function() {
+	gulp.task('styles', () => {
 		gulp.src(config.path.dev.style + 'style.scss')
 			.pipe(plugins.sourcemaps.init())
 			.pipe(plugins.sass().on('error', plugins.sass.logError))
@@ -66,7 +59,7 @@
 	});
 
 	// WATCH
-	gulp.task('watch', function() {
+	gulp.task('watch', () => {
 		browserSync.init({
 	        server: {
 	            baseDir: config.path.prod.index,
@@ -92,4 +85,4 @@
 
 	// DEFAULT
 	gulp.task('default', ['styles', 'scripts', 'watch']);
-} (require('./config.js')))
+} (require('./config.js')));
